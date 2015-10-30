@@ -1,0 +1,19 @@
+{
+  "DB":
+  {
+    "url": "mongodb://37.59.29.22/ngiaxess",
+    "auth": {
+      "user": "portal",
+      "pass": "weenee@p0rtal"
+    }
+  },
+  "API":
+  {
+    "version":"1.0",
+    "PORT":5000,
+    "secret": "ngi",
+    "expireSession": 120,
+    "PATH":"/api"
+
+  }
+}
