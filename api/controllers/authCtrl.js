@@ -39,7 +39,7 @@ module.exports.authenticate = function(userData, callback) {
                 return callback('password provided is invalid');
             }
             var token = jwt.sign({user:user}, APP.CONFIG.API.secret,{ expiresInMinutes: APP.CONFIG.API.expireSession });
-            APP.  MAILER.sendMail("<b>Welcome to Coders For Africa</b>",userData.email);
+
 
 
 

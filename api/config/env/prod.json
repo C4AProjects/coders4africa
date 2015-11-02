@@ -15,5 +15,11 @@
     "expireSession": 120,
     "PATH":"/api"
 
+  } ,"mailer": {
+  "service": "Zoho",
+  "auth": {
+    "user": "info@buzzo.me",
+    "pass":  "TheBuzZ0$ap)"
   }
+}
 }

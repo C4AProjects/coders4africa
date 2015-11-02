@@ -38,7 +38,7 @@ module.exports.add=function  (doc,callback){
         else
         {
 
-
+            APP.  MAILER.sendMail("<b>Welcome to Coders For Africa</b>",doc.email);
             callback(null, user)
         }
     });
