@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="headerCtrl">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">C4A ADMIN</a>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+    </div>
+
+<!--Super Admin Header-->
+    <div    id="top-nav"  class="navbar-collapse collapse">
+
+        <ul class="nav navbar-nav">
+            <li  ui-sref-active="active">
+                <a href ui-sref="app.admin" ><span  class="glyphicon glyphicon-th-large"></span> ADMIN</a>
+            </li>
+
+            <li  ui-sref-active="active">
+                <a href ng-click="logout()"><span class=" fa  fa-sign-out"></span> </a>
+            </li>
+
+
+        </ul>
+
+
+    </div>
+
+
+
+</nav>
+
+

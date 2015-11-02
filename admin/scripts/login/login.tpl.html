@@ -1,0 +1,34 @@
+
+
+    <form name="LoginForm" novalidate ng-submit="signIn()" class="form-signin" autocomplete="off">
+        <div class='login_header' style="text-align: center">
+            <h1>{{config.APP_NAME}} </h1>
+            <!--<img src='content/images/ChildFund.png'/>-->
+        </div>
+        <h2 class="form-signin-heading text-muted" style="text-align: center"> Sign-in to login</h2>
+        <div class="login-block" style="text-align: center">
+            <div class='form-img'>
+                <img src='assets/img/avatar_2x.png'/>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                <input type="text" class="form-control" id="exampleInputEmail1" autocomplete="off"
+                       placeholder="Enter username or email" ng-model="user.email">
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+                <input type="password" class="form-control" id="exampleInputPassword1"
+                       placeholder="Password" autocomplete="off" ng-model="user.password">
+            </div>
+
+
+            <div class='form-item form-button form-button-submit'>
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+            <!-- <a class="btn btn-lg btn-primary btn-block" href="/auth/facebook">{{'LOGIN_FORM_LOGIN_WITH_FACEBOOK'|translate}} </a> -->
+            <!-- <a class="btn btn-lg btn-info btn-block" ui-sref="register">{{'REGISTRATION_FORM_REGISTER'|translate}}</a> -->
+        </div>
+    </form>
+</div>

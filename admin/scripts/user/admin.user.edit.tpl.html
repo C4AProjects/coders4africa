@@ -1,0 +1,98 @@
+<form class="panel panel-default" style="margin-bottom:50px " name="editUserForm">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="fa fa-pencil-square-o"></span> Edit User</h3>
+    </div>
+    <div class="panel-heading">
+        Personal Information
+    </div>
+
+
+
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="fa fa-user-plus"></span> New User</h3>
+    </div>
+    <div class="panel-heading">
+        Personal Information
+    </div>
+
+
+    <div class="panel-body" style="padding:0px;margin:0px;height: 100%">
+
+
+        <div class="col-lg-6">
+            <div class="form-group " ng-class="{ 'has-error': editUserForm.last_name.$invalid }">
+                <label class="control-label">Nom</label>
+                <input type="text" class="form-control" name="last_name" ng-model="user.last_name" required>
+            </div>
+            <div class="form-group " ng-class="{ 'has-error': editUserForm.first_name.$invalid }">
+                <label class="control-label">Prenom</label>
+                <input type="text" class="form-control" name="first_name" ng-model="user.first_name" required>
+            </div>
+            <div class="form-group " ng-class="{ 'has-error': editUserForm.country.$invalid }">
+                <label class="control-label">Country</label>
+                <select ui-select2 ng-model="user.country" data-placeholder="Select User Role" class="form-control"
+                        name="country" required>
+                    <option value="{{country.name}}" ng-repeat="country in _ADMIN.countryList">{{country.name}}</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group " ng-class="{ 'has-error': editUserForm.phone.$invalid }">
+                <label class="control-label">JOB</label>
+                <input type="text" class="form-control" ng-model="user.job" name="phone">
+            </div>
+
+            <div class="form-group " ng-class="{ 'has-error': editUserForm.mail.$invalid }">
+                <label class="control-label">Mail</label>
+                <input type="email" class="form-control" ng-model="user.email" name="mail">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="panel-heading">
+        Connexion Parameters
+    </div>
+
+
+    <div class="panel-body" style="padding:0px;margin:0px;height: 100%">
+
+        <div class="form-group col-lg-6" ng-class="{ 'has-error': editUserForm.role.$invalid }">
+            <label class="control-label">Role</label>
+
+            <select ui-select2 ng-model="user.role" data-placeholder="Select User Role" class="form-control" name="role"
+                    required>
+                <option value="admin" >Admin
+                </option>
+                <option value="user" >User
+                </option>
+            </select>
+        </div>
+
+
+        <div class="form-group col-lg-6" ng-class="{ 'has-error':  editUserForm.password.$invalid}">
+            <label class="control-label">Password <span
+                    ng-show="editUserForm.password.$error.minlength "> (min length 5)</span></label>
+            <input type="password" class="form-control" ng-model="user.password" name="password" ng-minlength="5"
+                   required>
+        </div>
+
+        <div class="form-group col-lg-6" ng-class="{ 'has-error': user.password!=USEREDIT.confirm_password }" required>
+            <label class="control-label">Confirm Password <span ng-show="user.password!=USEREDIT.confirm_password"> (Password not Match)</span></label>
+            <input type="password" class="form-control" ng-model="USEREDIT.confirm_password" name="confirm">
+        </div>
+
+    </div>
+
+
+    <div class="panel-footer" style="min-height: 50px">
+        <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="UpdateUser()" ng-disabled="!editUserForm.$valid" style="margin:5px"> Save <span class="fa  fa-floppy-o"></span> </button>
+
+        <button type="button" class="btn btn-primary btn-sm pull-right" ui-sref="admin.user" style="margin:5px"> Cancel <span class="fa fa-close"></span> </button>
+
+
+
+
+    </div>
+</form>

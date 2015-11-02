@@ -1,0 +1,110 @@
+<section ui-view>
+
+
+<div class="panel panel-default" id="userListTable">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="fa fa-users"></span> Utilisateurs</h3>
+    </div>
+    <div class="panel-heading">
+        <button type="button" class="btn btn-primary btn-sm " ui-sref="admin.user.add">Ajouter un utilisateur <span class="fa fa-user-plus"></span></button>
+        <form class="form-inline pull-right">
+            <div class="input-group">
+                <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control input-sm" id="exampleInputEmail3" placeholder="Search" ng-model="_ADMIN_USER.UserSearch" ng-change="loadUsers()" ng-model-options="{ debounce: 500 }">
+                <span class="input-group-addon btn" ng-click="clearSearchField()"><i class="fa fa-times"></i></span>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="panel-body" style="padding:0px;margin:0px;height: 100%" >
+
+        <table class="table table-bordered" >
+            <thead>
+            <tr>
+                <th>
+                    Nom
+                </th>
+                <th>
+                    Prenom
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Role
+                </th>
+
+                <th>
+                    Country
+                </th>
+                <th class="hidden-sm hidden-xs">
+                    Created Date
+                </th>
+                <th class="hidden-sm hidden-xs">
+                    Action
+                </th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="user in _ADMIN_USER.userList " >
+                <td>{{ user.last_name | limitTo: 20 }}{{user.last_name.length > 20 ? '...' : ''}}</td>
+                <td>{{ user.first_name | limitTo: 20 }}{{user.first_name.length > 20 ? '...' : ''}}</td>
+                <td>{{ user.email | limitTo: 20 }}{{user.login.length > 20 ? '...' : ''}}</td>
+                <td>
+                    <span class="label label-danger" ng-if="user.role=='admin'">{{ user.role }}</span>
+                    <span class="label label-success"  ng-if="user.role=='user'">{{ user.role }}</span>
+                    <span class="label label-info"  ng-if="user.role=='superadmin'">{{ user.role }}</span>
+                    <span class="label label-warning"  ng-if="user.role=='reseller'">{{ user.role }}</span>
+                    <span class="label label-primary"  ng-if="user.role=='personal'">{{ user.role }}</span>
+                </td>
+
+                <td>
+                    {{ user.country }}
+                </td>
+                <td class="hidden-sm hidden-xs">{{ user.modif_dt | date:'d/M/yyyy '}}<b> {{ user.modif_dt | date:'hh:mm'}}</b> </td>
+                <td class="hidden-sm hidden-xs">
+                <div class="button-actions" >
+                    <button type="button" class="btn btn-success btn-sm" title="Edit" ui-sref="admin.user.edit({userId:user._id})">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" title="Remove" ng-click="deleteUser(user)">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                    </button>
+                </div>
+                </td>
+
+            </tr>
+            </tbody>
+
+        </table>
+
+
+    </div>
+
+    <div class="panel-footer">
+        <pagination total-items="_ADMIN_USER.count"  items-per-page="_ADMIN_USER.limit"  ng-model="_ADMIN_USER.currentPage" ng-change="selectPage()" style="margin: 0"></pagination>
+
+
+
+        <form class="form-inline pull-right">
+            <div class="input-group">
+                <div class="btn-group" >
+                    <label class="btn btn-default" ng-model="_ADMIN_USER.limit" btn-radio="5" uncheckable ng-change="loadUsers()">5</label>
+                    <label class="btn btn-default" ng-model="_ADMIN_USER.limit" btn-radio="10" uncheckable ng-change="loadUsers()">10</label>
+                    <label class="btn btn-default" ng-model="_ADMIN_USER.limit" btn-radio="50" uncheckable ng-change="loadUsers()">50</label>
+                    <label class="btn btn-default" ng-model="_ADMIN_USER.limit" btn-radio="100" uncheckable ng-change="loadUsers()">100</label>
+                </div>
+            </div>
+        </form>
+        <h6 class="text-muted" ng-click="print()">Count: {{_ADMIN_USER.count}}</h6>
+
+
+
+    </div>
+</div>
+</section>
