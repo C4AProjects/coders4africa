@@ -15,11 +15,19 @@ module.exports = function (app) {
         })
 
     });
-
+    app.post(APP.APIPATH+"/user/query", function(req, res){
+        userCtrl.query(req, function (err, pageCount,totalCount, docs) {
+            if(err)
+                res.send({success:false,error:err})
+            else{
+                res.send({success:true,page_count:pageCount,total_count:totalCount,result:docs})
+            }
+        });
+    });
 
     app.get(APP.APIPATH + '/user', function (req, res) {
 
-        userCtrl.getAll(function(err, doc){
+        userCtrl.getAll(req,function(err, doc){
             if(err)
                 res.send({success: false, error: err})
             else

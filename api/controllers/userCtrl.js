@@ -48,8 +48,8 @@ module.exports.add=function  (doc,callback){
 module.exports.getById=function (userId,callback) {
     utils.getById(userId,callback,APP.USER)
 }
-module.exports.getAll=function (callback) {
-    utils.getAll(callback,APP.USER)
+module.exports.getAll=function (req,callback) {
+    utils.getAll(req,callback,APP.USER)
 }
 
 

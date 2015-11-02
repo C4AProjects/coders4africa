@@ -102,9 +102,11 @@ module.exports.getById = function (id, callback, model) {
 
     });
 }
-module.exports.getAll = function ( callback, model) {
+module.exports.getAll = function ( req,callback, model) {
     console.log("GET ALL from " + model.collection.name )
-    var query=  model.find({}).select("-password")
+    var page = req.query.page || 1;
+    var limit = req.query.limit || 10;
+    var query=  model.find({}).skip((page*limit)-limit).limit(limit).select("-password")
     query.exec(function (err, user) {
         if (err) {
             callback("Erreur: Recherche user par id" + err);
