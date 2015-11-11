@@ -3,7 +3,7 @@
 
 APP.controller('loginCtrl',['$rootScope','$scope', '$state','loginSrv','ngDialog', function ($rootScope,$scope, $state,loginSrv,ngDialog) {
 
-    $scope.user={email:"haythem", password:"haythem"};
+    $scope.user={email:"", password:""};
     if (loginSrv.isLoggedIn()) {
 
 
