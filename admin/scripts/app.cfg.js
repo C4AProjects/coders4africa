@@ -1,16 +1,15 @@
+var config_prod={
 
-var config_remote={
+    "API_URI": "http://c4africa-dev.c4asolution.com:5000/api/v1.0"
+}
+var config_dev={
 
     "API_URI": "http://localhost:5000/api/v1.0"
 }
-var config_local={
-
-    "API_URI": "http://localhost:5000/api/v1.0"
-}
 
 
 
-APP.constant("CONFIG",config_local )
+APP.constant("CONFIG",config_prod )
 
 
 

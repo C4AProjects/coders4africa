@@ -56,7 +56,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 //  app.use(multer());
 app.use(compress());
-
+app.use('/admin',express.static(require("path").join(__dirname, '../admin')));
+//app.use('/admin', express.static('./admin'));
 // Middleware attachment
 app.use(cors({
     origin: '*',
@@ -79,7 +80,8 @@ app.use(jwt({
 }).unless(function(req) {
     return (
         req.originalUrl === APP.APIPATH + '/user' && req.method === 'POST' ||
-        req.originalUrl === APP.APIPATH + '/login' && req.method === 'POST'
+        req.originalUrl === APP.APIPATH + '/login' && req.method === 'POST' ||
+        req.originalUrl ===  '/admin'
     );
 }));//.unless({path: accessiblePathList}));
 
