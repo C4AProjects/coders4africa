@@ -10,7 +10,7 @@ APP =angular.module("C4A",
         'angularSpinner',
 
         'ui.select2',
-        'ui-notification'
+        'ui-notification','reCAPTCHA'
 
     ]);
 
@@ -81,6 +81,13 @@ APP.factory('authInterceptor', function ($rootScope, $q, $window) {
         $httpProvider.interceptors.push('authInterceptor');
 
         $httpProvider.interceptors.push('ajax-loader');
+    }).config(function (reCAPTCHAProvider) {
+        // required, please use your own key :)
+        reCAPTCHAProvider.setPublicKey('6LfA2hATAAAAAB1Vz1kNHHhAUEviMMEaBLTROomd');
+        // optional
+        reCAPTCHAProvider.setOptions({
+            theme: 'clean'
+        });
     })
 
 

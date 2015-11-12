@@ -36,7 +36,9 @@
                 <th>
                     Role
                 </th>
-
+                <th>
+                    Gender
+                </th>
                 <th>
                     Country
                 </th>
@@ -65,6 +67,9 @@
 
                 <td>
                     {{ user.country }}
+                </td>
+                <td>
+                    {{ user.gender }}
                 </td>
                 <td class="hidden-sm hidden-xs">{{ user.modif_dt | date:'d/M/yyyy '}}<b> {{ user.modif_dt | date:'hh:mm'}}</b> </td>
                 <td class="hidden-sm hidden-xs">

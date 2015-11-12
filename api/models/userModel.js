@@ -13,16 +13,19 @@ user_schema = new Schema({
 
     first_name:{ type: String},
     last_name:{ type: String},
-    email: { type: String, unique: true },
+    email: { type: String,  index: {unique: true, dropDups: true}},
     job: { type: String },
     country: { type: String },
     password: { type: String },
+    gender: { type: String },
     role:{type: String, default: "user",enum:["user","admin"]},
 
     creation_dt: {type: Date, default: Date.now},
     modif_dt: {type: Date, default: Date.now}
 
 })
+
+
 user_schema.plugin(paginator);
 user_schema.methods.verifyPassword = function verifyPassword(passwd, callback) {
     bcrypt.compare(passwd, this.password, function done(err, isMatch) {

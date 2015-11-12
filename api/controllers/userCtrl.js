@@ -30,18 +30,29 @@ module.exports.add=function  (doc,callback){
         callback("Veuillez ajouter un mode de passe");return;
     }
 
-    var user=new APP.USER();
-    user = _.extend(user, doc);
-    user.save(function (er) {
-        if (er )
-        {callback(er)}
-        else
-        {
 
-            APP.  MAILER.sendMail("<b>Welcome to Coders For Africa</b>",doc.email);
-            callback(null, user)
+    APP.USER.find({email:doc.email},function(err,users){
+        if (err){console.log (err);callback(err)}
+        if (users && users.length>0){
+            callback("This Mail already registred")
+        }else{
+            var user=new APP.USER();
+            user = _.extend(user, doc);
+
+
+            user.save(function (er) {
+                if (er )
+                {callback(er)}
+                else
+                {
+
+                    APP.  MAILER.sendMail("<b>Welcome to Coders For Africa</b>",doc.email);
+                    callback(null, user)
+                }
+            });
         }
-    });
+    })
+
 }
 
 /*Get user by id*/
