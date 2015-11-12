@@ -9,7 +9,7 @@ var config_dev={
 
 
 
-APP.constant("CONFIG",config_dev )
+APP.constant("CONFIG",config_prod )
 
 
 
