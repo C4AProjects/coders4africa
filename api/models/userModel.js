@@ -49,7 +49,8 @@ user_schema.methods.cryptPassword = function cryptPassword(passwd) {
     return cryptedPass;
 
 }
-user_schema.index({ email: 1, unique:true })
+
+
 
 
 user_schema.on('index', function(err) {

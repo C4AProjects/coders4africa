@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="C4A">
 
 <head>
     <meta charset="utf-8">
@@ -23,6 +23,9 @@
   <!-- Add fancyBox  CSS files -->
 	
 	<link rel="stylesheet" type="text/css" href="assets/fancy/jquery.fancybox.css?v=2.1.5" media="screen" />
+	<link rel="stylesheet" href="bower_components/angular-ui-notification/dist/angular-ui-notification.min.css">
+	<link rel="stylesheet" href="bower_components/select2/select2.css">
+	<link rel="stylesheet" href="bower_components/select2-bootstrap-css/select2-bootstrap.min.css">
 
 	 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -42,6 +45,8 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<span us-spinner spinner-key="spinner-1" spinner-start-active="false"></span>
+
 	<!-- Preloader
 	<div id="preloader">
 	  <div id="load"></div>
@@ -98,20 +103,120 @@
 <div class="item">
     		 </div>
 	<div class="logo"></div>
-		<div class="slogan">
+		<div class="slogan"  style="paddong:100px">
 			<h2>WELCOME TO  your Coders community </h2>
-			<h4>WE ARE GROUP OF GENTLEMEN MAKING AWESOME SOFTWARE SOLUTIONS</h4>
-			
+			<h4>CODERS4AFRICA NETWORK IS GETTING A NEW FACELIFT </h4>
+			<h4>THE NEW SITE WILL BE LIVE JANUARY 20th 2016. FEEL FREE TO REGISTER NOW TO STAY UP TO DATE</h4>
 		</div>
 
 		 <div class="network-btn">
-                             
-		<p><a class="fancybox fancybox.iframe btn btn-lg btn-rounded-orange" href="register.html"role="button">Join the network<i class="icon-angle-right icon-nav"></i></a></p>
+
+		<p><a id="btnForm" class=" btn btn-lg btn-rounded-orange" href="#registration" role="button">Join the network<i class="icon-angle-right icon-nav"></i></a></p>
 		</div>
 
     </section>
 	<!-- /Section: intro -->
+	<div style="display:none;">
+		<section id="registration" style="max-width: 800px">
+			<div class="headerbox section-heading dark-font">
+				<h3>Register</h3>
+			</div>
+			<div class="container" ng-controller="registerCtrl">
 
+				<div class="contentsection row">
+
+					<div class=" formsection col-md-6 col-sm-3 col-xs-6 col-centered-fixed">
+
+						<form id="formregister" action="#">
+							<div class="form-group">
+								<input ng-model="user.first_name" type="text" class="form-control" id="name" placeholder="First Name" required="required" />
+							</div>
+
+							<div class="form-group">
+								<input ng-model="user.last_name" type="text" class="form-control" id="surname" placeholder="Second Name" required="required" />
+							</div>
+
+							<div class="form-group">
+								<div class="input-group">
+
+									<input ng-model="user.email" type="text" class="form-control" id="email" placeholder="Email" required="required" /><span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+								</div>
+							</div>
+
+
+
+							<div class="form-group" style="text-align: left">
+								<select ui-select2 ng-model="_user.jobType" data-placeholder="Select" class="form-control" name="type"
+										required>
+									<option value=""></option>
+									<option value="{{item}}" ng-repeat="item in jobList">{{item }}</option>
+
+								</select>
+
+							</div>
+
+							<div class="form-group">
+								<input ng-if="_user.jobType=='Other'" ng-model="_user.job" type="text" class="form-control" id="title" placeholder="Other" required="required" />
+
+							</div>
+							<div class="form-group" style="text-align: left">
+								<select ui-select2 ng-model="user.country" data-placeholder="Select Country" class="form-control" name="type"
+										required>
+									<option value=""></option>
+									<option value="{{item.name}}" ng-repeat="item in counrtyList">{{item.name }}</option>
+
+								</select>                            </div>
+
+							<div class="form-group" style="text-align: left">
+								<select ui-select2 ng-model="user.gender" data-placeholder="Select Gender" class="form-control" name="type"
+										required>
+									<option value=""></option>
+									<option value="male" >Male</option>
+									<option value="female" >Female</option>
+
+								</select>
+
+							</div>
+
+							<!-- <div div class="form-group" >
+                                 <div
+                                         vc-recaptcha
+                                         theme="'light'"
+                                         key="model.key"
+                                         on-create="setWidgetId(widgetId)"
+                                         on-success="setResponse(response)"
+                                         on-expire="cbExpiration()"
+                                         ></div>
+                             </div>
+                             {{user.captcha}}-->
+							<div class="form-group">
+								<input ng-model="user.password" type="password" class="form-control" id="password" placeholder="Password" required="required" />
+							</div>
+
+							<div class="form-group">
+								<input ng-model="user.confirm_password" type="password" class="form-control" id="password2" placeholder="Confirm password" required="required" />
+							</div>
+
+							<p><a class="btn btn-lg btn-black" href="#" role="button" ng-click="register()">Register</a></p>
+						</form>
+
+					</div>
+
+
+					<div class="imgsection col-md-6 col-sm-3 col-xs-6 col-centered-fixed">
+						<img src="assets/joinus.png" class="img-responsive" />
+						<div class="section-heading">
+							<h3> Join the</h3>
+							<h2> C4A Network</h2>
+						</div>
+					</div>
+
+
+				</div> <!-- end row -->
+			</div>
+		</section>
+	</div>
 
 
 	<!-- Section: services -->
@@ -173,9 +278,9 @@
 	<!-- /Section: services -->
 
 	<!-- Section: factual data -->
-    <section id="fact" class="home-section text-center bg-orange">
+    <section id="fact" class="home-section text-center bg-orange" >
 		
-		
+
 		<div class="container marginbot-50">
 					<div class="wow bounceInDown" data-wow-delay="0.4s">
 							<div class="section-heading">
@@ -185,12 +290,13 @@
 					</div>
 				
 		</div>
-		<div class="container">
+		<div class="container" ng-controller="factsCtrl">
+			{{facts}}
 		    <div class="row">
 		        <div class="col-md-3 col-xs-6 col-line">	
                 <div class="fact-box">	
 					<div class="fact-desc">
-					    <span class="number">1591</span>
+					    <span class="number">{{facts.members}}</span>
 						<span class="desc">Members</span>
 					</div>
                 </div>
@@ -198,7 +304,7 @@
 			<div class="col-md-3 col-xs-6 col-line">
 	             <div class="fact-box">
 					<div class="fact-desc">
-					    <span class="number">25</span>
+					    <span class="number">{{facts.countries}}</span>
 						<span class="desc">Countries</span>
 					</div>
                 </div>			
@@ -206,7 +312,7 @@
             <div class="col-md-3 col-xs-6 col-line">
                 <div class="fact-box">
 					<div class="fact-desc">
-					    <span class="number">534</span>
+					    <span class="number">{{facts.professional}}</span>
 						<span class="desc">Professional</span>
 					</div>
                 </div>	
@@ -215,7 +321,7 @@
 			<div class="col-md-3 col-xs-6 col-line">	
                 <div class="fact-box">
 					<div class="fact-desc">
-					    <span class="number">1234</span>
+					    <span class="number">{{facts.students}}</span>
 						<span class="desc">Students</span>
 					</div>
                 </div>
@@ -226,7 +332,7 @@
             <div class="col-md-3 col-xs-6 col-line">
 	            <div class="fact-box">
 					<div class="fact-desc">
-					    <span class="number">1591</span>
+					    <span class="number">{{facts.events}}</span>
 						<span class="desc">Events</span>
 					</div>
                 </div>
@@ -235,7 +341,7 @@
                 <div class="fact-box">					
 					<div class="fact-desc">
 				
-                        <span class="number">456</span>
+                        <span class="number">{{facts.projects}}</span>
 						<span class="desc">Projects</span>
 					</div>
                 </div>	
@@ -244,7 +350,7 @@
                 <div class="fact-box">
 					<div class="fact-desc">
 						
-                        <span class="number">877</span>
+                        <span class="number">{{facts.clients}}</span>
 						<span class="desc">Clients</span>
 					</div>
                 </div>	
@@ -253,7 +359,7 @@
 			<div class="col-md-3 col-xs-6 col-line">
                <div class="fact-box">					
 					<div class="fact-desc">
-						<span class="number">22347</span>
+						<span class="number">{{facts.followers}}</span>
 						<span class="desc">Followers</span>
 					</div>
                 </div>
@@ -382,9 +488,30 @@
 	  <script src="js/custom.js"></script>
 <!-- Add fancyBox main JS  -->
 	<script type="text/javascript" src="assets/fancy/jquery.fancybox.js?v=2.1.5"></script>
+
+
+<script type="text/javascript" src="bower_components/select2/select2.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script
+		src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit"
+		async defer
+		></script>
+<script type="text/javascript" src="bower_components/angular-ui-select2/src/select2.js"></script>
+
+<script src="bower_components/spin.js/spin.js"></script>
+<script src="bower_components/angular-spinner/angular-spinner.min.js"></script>
+<script src="bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-re-captcha/angular-re-captcha.js"></script>
+
+
+<script src="app/app.mdl.js"></script>
+<script src="app/app.run.js"></script>
+<script src="app/app.cfg.js"></script>
+<script src="app/registerCtrl.js"></script>
+<script src="app/factsCtrl.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(".fancybox").fancybox();
+		$("#btnForm").fancybox();
 	});
 </script>
 </body>

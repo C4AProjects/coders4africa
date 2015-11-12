@@ -10,7 +10,25 @@ APP.controller('registerCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Noti
         var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
         return re.test(email);
     }
-    //reCAPTCHA.setPublicKey('---KEY---');
+
+    $scope.response = null;
+    $scope.widgetId = null;
+    $scope.setResponse = function (response) {
+        console.info('Response available');
+        $scope.response = response;
+    };
+    $scope.setWidgetId = function (widgetId) {
+        console.info('Created widget ID: %s', widgetId);
+        $scope.widgetId = widgetId;
+    };
+    $scope.cbExpiration = function() {
+        console.info('Captcha expired. Resetting response object');
+        $scope.response = null;
+    };
+
+
+
+
     $scope._user = {}
     $scope._user.job = ""
     $scope._user.jobType = ""
@@ -56,6 +74,7 @@ APP.controller('registerCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Noti
             if (data && data.success) {
 
                 Notification('Your account was created, you will receive a confirmation Email');
+                $.fancybox.close();
             } else if (data && data.error) {
                 Notification.error(data.error);
             }

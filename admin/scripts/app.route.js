@@ -41,6 +41,12 @@ APP.config(['$stateProvider', '$urlRouterProvider','$locationProvider',function 
             controller: "userEditCtrl"
 
 
+        }).state('facts', {
+            url: '/facts',
+            templateUrl: './scripts/facts/facts.html',
+            controller: "factsCtrl"
+
+
         })
 
 
