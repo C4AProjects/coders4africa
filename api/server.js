@@ -82,6 +82,7 @@ app.use(jwt({
         req.originalUrl === APP.APIPATH + '/user' && req.method === 'POST' ||
         req.originalUrl === APP.APIPATH + '/login' && req.method === 'POST' ||
         req.originalUrl ===  '/admin' || req.originalUrl ===  APP.APIPATH +'/facts'
+        || req.originalUrl ===  APP.APIPATH +'/msg'
     );
 }));//.unless({path: accessiblePathList}));
 

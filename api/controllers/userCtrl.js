@@ -25,11 +25,11 @@ module.exports.add=function  (doc,callback){
     {
         callback("Veuillez ajouter un email");return;
     }
-    if (!doc.password)
+ /*   if (!doc.password)
     {
         callback("Veuillez ajouter un mode de passe");return;
     }
-
+*/
 
     APP.USER.find({email:doc.email},function(err,users){
         if (err){console.log (err);callback(err)}

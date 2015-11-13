@@ -69,9 +69,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#intro">Home</a></li>
         <li><a href="#about">About</a></li>
-		<li><a href="#blog">Join Network</a></li>
-		<li><a href="#blog">Blog</a></li>
-		<li><a href="#community">Old Community site</a></li>
+		<li><a id="btnForm2" href="#registration">Join Network</a></li>
+		<li><a href="http://blog.coders4frica.com">Blog</a></li>
+		<li><a href="http://www.coders4africa.org">Old Community site</a></li>
 		<li><a href="#footer">Contact</a></li>
        
       </ul>
@@ -86,10 +86,10 @@
             	</div>
             	<div class="iconsocial"> 
 					<ul class="social">
-                          <li><a href="#"><i class="icon-linkedin icon-social"></i> </a></li>
-                          <li><a href="#"><i class="icon-twitter icon-social"></i> </a></li>
+                          <li><a href="https://www.linkedin.com/company/6422097"><i class="icon-linkedin icon-social"></i> </a></li>
+                          <li><a href="https://twitter.com/Coders4africa"><i class="icon-twitter icon-social"></i> </a></li>
                     
-                          <li><a href="#"><i class="icon-facebook icon-social"></i> </a></li>
+                          <li><a href="https://www.facebook.com/Coders4Africa-187440224606459"><i class="icon-facebook icon-social"></i> </a></li>
                     </ul>
             	</div>         	          	
             </div>
@@ -117,7 +117,7 @@
     </section>
 	<!-- /Section: intro -->
 	<div style="display:none;">
-		<section id="registration" style="max-width: 800px">
+		<section id="registration" style="max-width: 800px;overflow-x: hidden">
 			<div class="headerbox section-heading dark-font">
 				<h3>Register</h3>
 			</div>
@@ -178,25 +178,25 @@
 								</select>
 
 							</div>
-
-							<!-- <div div class="form-group" >
-                                 <div
-                                         vc-recaptcha
-                                         theme="'light'"
-                                         key="model.key"
-                                         on-create="setWidgetId(widgetId)"
-                                         on-success="setResponse(response)"
-                                         on-expire="cbExpiration()"
-                                         ></div>
-                             </div>
-                             {{user.captcha}}-->
-							<div class="form-group">
+							<!--
+                                                         <div div class="form-group" >
+                                                             <div
+                                                                     vc-recaptcha
+                                                                     theme="'light'"
+                                                                     key="model.key"
+                                                                     on-create="setWidgetId(widgetId)"
+                                                                     on-success="setResponse(response)"
+                                                                     on-expire="cbExpiration()"
+                                                                     ></div>
+                                                         </div>
+                                                         {{user.captcha}}-->
+							<!--<div class="form-group">
 								<input ng-model="user.password" type="password" class="form-control" id="password" placeholder="Password" required="required" />
 							</div>
 
 							<div class="form-group">
 								<input ng-model="user.confirm_password" type="password" class="form-control" id="password2" placeholder="Confirm password" required="required" />
-							</div>
+							</div>-->
 
 							<p><a class="btn btn-lg btn-black" href="#" role="button" ng-click="register()">Register</a></p>
 						</form>
@@ -241,7 +241,7 @@
 					</div>
 					<div class="service-desc">
 						<h3>We train</h3>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+						<p>Become a professional Software engineer ready to work on day one. Our training model provide both hardcode technical and soft skills.</p>
 					</div>
                 </div>
 				</div>
@@ -254,7 +254,7 @@
 					</div>
 					<div class="service-desc">
 						<h3>We network</h3>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+						<p>Large enough to statisfy any skill level, technology and demography. Our network is a dream come through for African IT professionals.</p>
 					</div>
                 </div>
 				</div>
@@ -267,7 +267,7 @@
 					</div>
 					<div class="service-desc">
 						<h3>We hire</h3>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+						<p>We provide jobs directly through CODERS4AFRICA own outsourcing services. Indirectly through a Developer-As-A-Service (DaaS) serving clients across the world. </p>
 					</div>
                 </div>
 				</div>
@@ -383,13 +383,13 @@
 		             		 </div>        
 		         
 				<div class="boxed-grey">
-                <form id="form">
+                <form id="form" ng-controller="mailCtrl">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">
                                 Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                            <input ng-model="msg.name" type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
                         </div>
                         <div class="form-group">
                             <label for="email">
@@ -397,7 +397,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                                <input ng-model="msg.email" type="text" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
                         </div>
                        
                     </div>
@@ -405,12 +405,12 @@
                         <div class="form-group">
                             <label for="name">
                                 Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="5" cols="15" required="required"
+                            <textarea ng-model="msg.msg"  name="message" id="message" class="form-control" rows="5" cols="15" required="required"
                                 placeholder="Message"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-warning " id="btnContactUs">
+                        <button type="button" ng-click="sendMsg()" class="btn btn-warning " id="btnContactUs">
                             Send Message</button>
                     </div>
                 </div>
@@ -466,10 +466,10 @@
                 <div>
                
                <ul class="social">
-                                    <li><a href="#"><i class="icon-linkedin icon-social"></i> </a></li>
-                                    <li><a href="#"><i class="icon-twitter icon-social"></i> </a></li>
+                                    <li><a href="https://www.linkedin.com/company/6422097"><i class="icon-linkedin icon-social"></i> </a></li>
+                                    <li><a href="https://twitter.com/Coders4africa"><i class="icon-twitter icon-social"></i> </a></li>
                     
-                                      <li><a href="#"><i class="icon-facebook icon-social"></i> </a></li>
+                                      <li><a href="https://www.facebook.com/Coders4Africa-187440224606459"><i class="icon-facebook icon-social"></i> </a></li>
                                 </ul>
                 </div>
                  
@@ -509,9 +509,12 @@
 <script src="app/app.cfg.js"></script>
 <script src="app/registerCtrl.js"></script>
 <script src="app/factsCtrl.js"></script>
+
+<script src="app/mailCtrl.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#btnForm").fancybox();
+		$("#btnForm2").fancybox();
 	});
 </script>
 </body>

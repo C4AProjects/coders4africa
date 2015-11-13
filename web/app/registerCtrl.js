@@ -55,14 +55,14 @@ APP.controller('registerCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Noti
             Notification.error("Please type your JOB ");
             return;
         }
-        if (!$scope.user.country) {
+      if (!$scope.user.country) {
             Notification.error("Please choose your country ");
             return;
         }
-        if (!$scope.user.password || $scope.user.password != $scope.user.confirm_password) {
+        /*  if (!$scope.user.password || $scope.user.password != $scope.user.confirm_password) {
             Notification.error("Please confirm your Password ");
             return;
-        }
+        }*/
 
         if($scope._user.jobType=='Other'){
             $scope.user.job=$scope._user.job

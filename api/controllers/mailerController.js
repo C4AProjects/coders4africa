@@ -35,6 +35,21 @@ MAILER.sendMail=function(content,to){
 }
 
 
+MAILER.sendMessage=function(msg,cb){
+var content=msg.msg
+    var mailOptions = {
+        from: 'info@buzzo.me', // sender address
+        to: "daffea@gmail.com", // list of receivers
+        subject: 'Coders4Africa Message From: '+ msg.name +" <"+msg.email+">", // Subject line
+        // plaintext body
+        html: content // html body
+    };
+
+
+    transporter.sendMail(mailOptions, cb);
+
+}
+
 
 module.exports = function (backend) {
     MAILER.init();
