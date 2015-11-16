@@ -363,7 +363,7 @@ hr {
 .intro {
 	width:100%;
 	position:relative;
-	background: url(../assets/slider_bg_c4a.jpg) no-repeat top center;
+	background: url(../assets/background.png) no-repeat top center;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
