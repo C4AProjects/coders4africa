@@ -35,6 +35,7 @@
     "multer": "*",
     "nodemailer": "~0.7.1",
     "serve-favicon": "*",
+    "simple-recaptcha": "0.0.3",
     "stomp-client": "^0.8.0",
     "underscore": "*",
     "validator": "~3.39.0",
