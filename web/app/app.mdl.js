@@ -86,7 +86,7 @@ APP.factory('authInterceptor', function ($rootScope, $q, $window) {
         reCAPTCHAProvider.setPublicKey('6LfA2hATAAAAAB1Vz1kNHHhAUEviMMEaBLTROomd');
         // optional
         reCAPTCHAProvider.setOptions({
-            theme: 'clean'
+            theme: 'white'
         });
     })
 

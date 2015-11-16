@@ -35,6 +35,8 @@ APP.controller('registerCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Noti
     $scope.register = function () {
         console.log(validateEmail($scope.user.email))
 
+
+
         if (!$scope.user.first_name) {
             Notification.error("Please type your First Name ");
             return;
@@ -63,6 +65,11 @@ APP.controller('registerCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Noti
             Notification.error("Please confirm your Password ");
             return;
         }*/
+
+        if (!$scope.user.captcha.response) {
+            Notification.error("Please type the Captcha");
+            return;
+        }
 
         if($scope._user.jobType=='Other'){
             $scope.user.job=$scope._user.job

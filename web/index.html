@@ -73,7 +73,13 @@
 		<li><a href="http://blog.coders4frica.com">Blog</a></li>
 		<li><a href="http://www.coders4africa.org">Old Community site</a></li>
 		<li><a href="#footer">Contact</a></li>
-       
+		  <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i>  English (US) <i class="icon-angle-up"></i></a>
+
+			  <ul class="dropdown-menu">
+				  <li><a  href="#" style="color: black">French(Fr)</a></li>
+				  <li><a  href="#" style="color: black">English(US)</a></li>
+			  </ul>
+		  </li>
       </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -178,19 +184,13 @@
 
 								</select>
 
+							</div>sss
+
+							<div class="form-group">
+								<label>Captcha*</label>
+								<div re-captcha ng-model="user.captcha"></div>
 							</div>
-							<!--
-                                                         <div div class="form-group" >
-                                                             <div
-                                                                     vc-recaptcha
-                                                                     theme="'light'"
-                                                                     key="model.key"
-                                                                     on-create="setWidgetId(widgetId)"
-                                                                     on-success="setResponse(response)"
-                                                                     on-expire="cbExpiration()"
-                                                                     ></div>
-                                                         </div>
-                                                         {{user.captcha}}-->
+
 							<!--<div class="form-group">
 								<input ng-model="user.password" type="password" class="form-control" id="password" placeholder="Password" required="required" />
 							</div>
@@ -454,13 +454,7 @@
                 <li> <a target="_blank" href="#" title="Coders4Africa">&copy; 2016 Coders4Africa</a> </li>
                 <li><a target="_blank" href="http://coders4africa.com" title="http://coders4africa.com">www.coders4Africa.org</a></li>
                 <li><a href="#">Privacy Policy </a></li>
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i>  English (US) <i class="icon-angle-up"></i></a>
 
-							          <ul class="dropdown-menu">
-							            <li><a href="#">French(Fr)</a></li>
-							            <li><a href="#">English(US)</a></li>
-							          </ul>
-       			</li>
        			
                 </ul>
                 </div>

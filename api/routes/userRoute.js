@@ -1,18 +1,35 @@
 
 
+var simple_recaptcha = require('simple-recaptcha');
 
 var userCtrl=require("../controllers/userCtrl")
 //var authCtrl=require("../controllers/authController")
 module.exports = function (app) {
 
     app.post(APP.APIPATH+"/user", function(req, res){
-        userCtrl.add(req.body,function(err,doc){
-            if (err)
-                res.send({success:false,error:err})
+
+
+        var privateKey = '6LfA2hATAAAAAPTngTcyX6xb0vX134dL9q25o6UZ'; // your private key here
+        var ip = req.ip;
+        var challenge = req.body.captcha.challenge;
+        var response = req.body.captcha.response;
+
+        simple_recaptcha(privateKey, ip, challenge, response, function(err) {
+            if (err)   {res.send({success:false,error:err.message})}
             else{
-                res.send({success:true,result:doc})
+                userCtrl.add(req.body,function(err1,doc){
+                    if (err1)
+                        res.send({success:false,error:err1})
+                    else{
+                        res.send({success:true,result:doc})
+                    }
+                })
             }
-        })
+
+
+        });
+     /*
+     */
 
     });
     app.post(APP.APIPATH+"/user/query", function(req, res){

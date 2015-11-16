@@ -11,8 +11,9 @@ var LIMIT_ROWS_DEFAULT = 10,
 var utils=require('../utils/utils');
 
 
-
 module.exports.add=function  (doc,callback){
+
+
     if (!doc.first_name)
     {
         callback("Veuillez ajouter un prenom");return;
@@ -25,11 +26,6 @@ module.exports.add=function  (doc,callback){
     {
         callback("Veuillez ajouter un email");return;
     }
- /*   if (!doc.password)
-    {
-        callback("Veuillez ajouter un mode de passe");return;
-    }
-*/
 
     APP.USER.find({email:doc.email},function(err,users){
         if (err){console.log (err);callback(err)}
@@ -52,7 +48,6 @@ module.exports.add=function  (doc,callback){
             });
         }
     })
-
 }
 
 /*Get user by id*/
