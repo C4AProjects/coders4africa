@@ -14,7 +14,7 @@ MAILER.init=function(){
 
 MAILER.sendMail=function(content,to){
     var mailOptions = {
-        from: 'info@buzzo.me', // sender address
+        from: 'contact@coders4africa.org', // sender address
         to: to, // list of receivers
         subject: 'Coders4Africa', // Subject line
         // plaintext body
@@ -38,8 +38,8 @@ MAILER.sendMail=function(content,to){
 MAILER.sendMessage=function(msg,cb){
 var content=msg.msg
     var mailOptions = {
-        from: 'info@buzzo.me', // sender address
-        to: "daffea@gmail.com", // list of receivers
+        from: 'contact@coders4africa.org', // sender address
+        to: "contact@coders4africa.org", // list of receivers
         subject: 'Coders4Africa Message From: '+ msg.name +" <"+msg.email+">", // Subject line
         // plaintext body
         html: content // html body
