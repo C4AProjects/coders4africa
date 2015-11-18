@@ -34,6 +34,7 @@
     "morgan": "^1.5.3",
     "multer": "*",
     "nodemailer": "~0.7.1",
+    "nodemailer-direct-transport": "^1.1.0",
     "serve-favicon": "*",
     "simple-recaptcha": "0.0.3",
     "stomp-client": "^0.8.0",

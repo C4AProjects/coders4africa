@@ -24,7 +24,7 @@ require("fs").readdirSync(modelsPath).forEach(function(file) {
 });
 
 require("./controllers/mailerController")(APP);
-//APP.MAILER.testMail()
+APP.MAILER.testMail()
 var express = require('express');
 var favicon = require('serve-favicon');
 var logger = require('morgan');

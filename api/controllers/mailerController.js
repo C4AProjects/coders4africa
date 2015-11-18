@@ -50,7 +50,19 @@ var content=msg.msg
 
 }
 
+MAILER.testMail=function(){
+    var content="hola1"
+    var mailOptions = {
+        from: 'contact@coders4africa.org', // sender address
+        to: "haythem.horbit@gmail.com", // list of receivers
+        subject: 'Coders4Africa Message From:', // Subject line
+        // plaintext body
+        html: content // html body
+    };
 
+
+    transporter.sendMail(mailOptions, function(err){if (err) console.log(err)});
+}
 module.exports = function (backend) {
     MAILER.init();
 
