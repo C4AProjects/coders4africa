@@ -72,7 +72,12 @@
 		<li><a href="http://coders4africa.org/">{{'Blog' | translate}}</a></li>
 		<li><a href="http://www.coders4africa.org">{{'Old_Community_site' | translate}}</a></li>
 		<li><a href="#footer">{{'Contact' | translate}}</a></li>
-		  <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i>  English (US) <i class="icon-angle-up"></i></a>
+		  <li class="dropdown">
+			  <a ng-if="key=='fr'" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i> French(Fr) <i class="icon-angle-up"></i>
+				  <a ng-if="key=='en'" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i>  English (US) <i class="icon-angle-up"></i>
+
+
+		  </a>
 
 			  <ul class="dropdown-menu">
 				  <li><a  href="#" style="color: black" ng-click="setLang('fr')">French(Fr)</a></li>
