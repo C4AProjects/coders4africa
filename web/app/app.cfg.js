@@ -20,5 +20,5 @@ APP.config(function ($translateProvider) {
     });
 
     // Tell the module what language to use by default
-    $translateProvider.preferredLanguage('fr');
+    $translateProvider.preferredLanguage('en');
 });
