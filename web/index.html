@@ -43,7 +43,7 @@
 
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom" ng-controller="appCtrl">
 <span us-spinner spinner-key="spinner-1" spinner-start-active="false"></span>
 
 	<!-- Preloader
@@ -66,17 +66,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#intro">Home</a></li>
-        <li><a href="#about">About</a></li>
-		<li><a id="btnForm2" href="#registration">Join Network</a></li>
-		<li><a href="http://coders4africa.org/">Blog</a></li>
-		<li><a href="http://www.coders4africa.org">Old Community site</a></li>
-		<li><a href="#footer">Contact</a></li>
+        <li class="active"><a href="#intro">{{'Home' | translate}}</a></li>
+        <li><a href="#about">{{'About' | translate}}</a></li>
+		<li><a id="btnForm2" href="#registration">{{'Join_Network' | translate}}</a></li>
+		<li><a href="http://coders4africa.org/">{{'Blog' | translate}}</a></li>
+		<li><a href="http://www.coders4africa.org">{{'Old_Community_site' | translate}}</a></li>
+		<li><a href="#footer">{{'Contact' | translate}}</a></li>
 		  <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i>  English (US) <i class="icon-angle-up"></i></a>
 
 			  <ul class="dropdown-menu">
-				  <li><a  href="#" style="color: black">French(Fr)</a></li>
-				  <li><a  href="#" style="color: black">English(US)</a></li>
+				  <li><a  href="#" style="color: black" ng-click="setLang('fr')">French(Fr)</a></li>
+				  <li><a  href="#" style="color: black" ng-click="setLang('en')">English(US)</a></li>
 			  </ul>
 		  </li>
       </ul>
@@ -110,14 +110,14 @@
 	<div class="logo"></div>
 		<div class="slogan"  style="paddong:100px">
 			<br>
-			<h2 style="font-size: 40px;">Welcome to the largest African Coders Community</h2>
-			<h4>CODERS4AFRICA NETWORK IS GETTING A FACELIFT</h4>
-			<h4>THE NEW SITE WILL BE LIVE JANUARY 20th 2016. FEEL FREE TO REGISTER NOW TO STAY UP TO DATE.</h4>
+			<h2 style="font-size: 40px;">{{'Welcome_to_the' | translate}}</h2>
+			<h4>{{'CODERS4AFRICA_NETWORK_IS' | translate}}</h4>
+			<h4>{{'THE_NEW_SITE_WILL' | translate}}</h4>
 		</div>
 
 		 <div class="network-btn">
 
-		<p><a id="btnForm" class=" btn btn-lg btn-rounded-orange" href="#registration" role="button">Join the network<i class="icon-angle-right icon-nav"></i></a></p>
+		<p><a id="btnForm" class=" btn btn-lg btn-rounded-orange" href="#registration" role="button">{{'Join_the_network' | translate}}<i class="icon-angle-right icon-nav"></i></a></p>
 		</div>
 
     </section>
@@ -125,7 +125,7 @@
 	<div style="display:none;">
 		<section id="registration" style="max-width: 800px;overflow-x: hidden">
 			<div class="headerbox section-heading dark-font">
-				<h3>Register</h3>
+				<h3>{{'Register' | translate}}</h3>
 			</div>
 			<div class="container" ng-controller="registerCtrl">
 
@@ -135,11 +135,11 @@
 
 						<form id="formregister" action="#">
 							<div class="form-group">
-								<input ng-model="user.first_name" type="text" class="form-control" id="name" placeholder="First Name" required="required" />
+								<input ng-model="user.first_name" type="text" class="form-control" id="name" placeholder="{{'First_Name' | translate}}" required="required" />
 							</div>
 
 							<div class="form-group">
-								<input ng-model="user.last_name" type="text" class="form-control" id="surname" placeholder="Second Name" required="required" />
+								<input ng-model="user.last_name" type="text" class="form-control" id="surname" placeholder="{{'Second_Name' | translate}}" required="required" />
 							</div>
 
 							<div class="form-group">
@@ -153,7 +153,7 @@
 
 
 							<div class="form-group" style="text-align: left">
-								<select ui-select2 ng-model="_user.jobType" data-placeholder="Select A Profession" class="form-control" name="type"
+								<select ui-select2 ng-model="_user.jobType" data-placeholder="{{'Select_A_Profession' | translate}}" class="form-control" name="type"
 										required>
 									<option value=""></option>
 									<option value="{{item}}" ng-repeat="item in jobList">{{item }}</option>
@@ -167,7 +167,7 @@
 
 							</div>
 							<div class="form-group" style="text-align: left">
-								<select ui-select2 ng-model="user.country" data-placeholder="Select Country" class="form-control" name="type"
+								<select ui-select2 ng-model="user.country" data-placeholder="{{'Select_Country' | translate}}" class="form-control" name="type"
 										required>
 									<option value=""></option>
 									<option value="{{item.name}}" ng-repeat="item in counrtyList">{{item.name }}</option>
@@ -175,11 +175,11 @@
 								</select>                            </div>
 
 							<div class="form-group" style="text-align: left">
-								<select ui-select2 ng-model="user.gender" data-placeholder="Select Gender" class="form-control" name="type"
+								<select ui-select2 ng-model="user.gender" data-placeholder="{{'Select_Gender' | translate}}" class="form-control" name="type"
 										required>
 									<option value=""></option>
-									<option value="male" >Male</option>
-									<option value="female" >Female</option>
+									<option value="male" >{{'Male' | translate}}</option>
+									<option value="female" >{{'Female' | translate}}</option>
 
 								</select>
 
@@ -197,7 +197,7 @@
 								<input ng-model="user.confirm_password" type="password" class="form-control" id="password2" placeholder="Confirm password" required="required" />
 							</div>-->
 
-							<p><a class="btn btn-lg btn-black" href="#" role="button" ng-click="register()">Register</a></p>
+							<p><a class="btn btn-lg btn-black" href="#" role="button" ng-click="register()">{{'Register' | translate}}</a></p>
 						</form>
 
 					</div>
@@ -206,7 +206,7 @@
 					<div class="imgsection col-md-6 col-sm-3 col-xs-6 col-centered-fixed">
 						<img src="assets/joinus.png" class="img-responsive" />
 						<div class="section-heading">
-							<h3> Join the</h3>
+							<h3> {{'Join_the' | translate}}</h3>
 							<h2> C4A Network</h2>
 						</div>
 					</div>
@@ -224,8 +224,8 @@
 		<div class="container marginbot-50">
 					
 							<div class="section-heading dark-font">
-				  					  <h3>What we do</h3>
-				                      <h2> Discover our services</h2>
+				  					  <h3>{{'What_we_do' | translate}}</h3>
+				                      <h2> {{'Discover_our_services' | translate}}</h2>
 		             		 </div>  
 		
 		</div> 
@@ -239,8 +239,8 @@
 						<img src="assets/trainer.png" alt="c4A Trainer" class="img-responsive" />
 					</div>
 					<div class="service-desc">
-						<h3>We train</h3>
-						<p>Become a professional Software engineer ready to work on day one. Our training model provide both hardcode technical and soft skills.</p>
+						<h3>{{'We_train' | translate}}</h3>
+						<p>{{'Become_a_professional' | translate}}</p>
 					</div>
                 </div>
 				</div>
@@ -252,8 +252,8 @@
 						<img src="assets/networkers.png" alt="c4A Network"  class="img-responsive"  />
 					</div>
 					<div class="service-desc">
-						<h3>We network</h3>
-						<p>Large enough to statisfy any skill level, technology and demography. Our network is a dream come through for African IT professionals.</p>
+						<h3>{{'We_network' | translate}}</h3>
+						<p>{{'Large_enough_to' | translate}}</p>
 					</div>
                 </div>
 				</div>
@@ -265,8 +265,8 @@
 							<img src="assets/hirer.png" alt="c4A Hirer"  class="img-responsive"  />
 					</div>
 					<div class="service-desc">
-						<h3>We hire</h3>
-						<p>We provide jobs directly through CODERS4AFRICA's outsourcing services. And Indirectly through a Developer-As-A-Service (DaaS) serving clients across the world.</p>
+						<h3>{{'We_hire' | translate}}</h3>
+						<p>{{'We_provide_jobs' | translate}}</p>
 					</div>
                 </div>
 				</div>
@@ -283,8 +283,8 @@
 		<div class="container marginbot-50">
 					<div class="wow bounceInDown" data-wow-delay="0.4s">
 							<div class="section-heading">
-							  <h3> Some facts about us </h3>
-		               		  <h2> We are proud of these numbers</h2>
+							  <h3>{{'Some_facts' | translate}}</h3>
+		               		  <h2>{{'We_are_proud_of' | translate}}</h2>
 							</div>
 					</div>
 				
@@ -296,7 +296,7 @@
                 <div class="fact-box">	
 					<div class="fact-desc">
 					    <span class="number">{{facts.members}}</span>
-						<span class="desc">Members</span>
+						<span class="desc">{{'Members' | translate}}</span>
 					</div>
                 </div>
 			  </div>
@@ -304,7 +304,7 @@
 	             <div class="fact-box">
 					<div class="fact-desc">
 					    <span class="number">{{facts.countries}}</span>
-						<span class="desc">Countries</span>
+						<span class="desc">{{'Countries' | translate}}</span>
 					</div>
                 </div>			
             </div>
@@ -312,7 +312,7 @@
                 <div class="fact-box">
 					<div class="fact-desc">
 					    <span class="number">{{facts.professional}}</span>
-						<span class="desc">Professional</span>
+						<span class="desc">{{'Professional' | translate}}</span>
 					</div>
                 </div>	
             </div>
@@ -321,7 +321,7 @@
                 <div class="fact-box">
 					<div class="fact-desc">
 					    <span class="number">{{facts.students}}</span>
-						<span class="desc">Students</span>
+						<span class="desc">{{'Students' | translate}}</span>
 					</div>
                 </div>
             </div>	
@@ -332,7 +332,7 @@
 	            <div class="fact-box">
 					<div class="fact-desc">
 					    <span class="number">{{facts.events}}</span>
-						<span class="desc">Events</span>
+						<span class="desc">{{'Events' | translate}}</span>
 					</div>
                 </div>
             </div>
@@ -341,7 +341,7 @@
 					<div class="fact-desc">
 				
                         <span class="number">{{facts.projects}}</span>
-						<span class="desc">Projects</span>
+						<span class="desc">{{'Projects' | translate}}</span>
 					</div>
                 </div>	
             </div>
@@ -350,7 +350,7 @@
 					<div class="fact-desc">
 						
                         <span class="number">{{facts.clients}}</span>
-						<span class="desc">Clients</span>
+						<span class="desc">{{'Clients' | translate}}</span>
 					</div>
                 </div>	
             </div>
@@ -359,7 +359,7 @@
                <div class="fact-box">					
 					<div class="fact-desc">
 						<span class="number">{{facts.followers}}</span>
-						<span class="desc">Followers</span>
+						<span class="desc">{{'Followers' | translate}}</span>
 					</div>
                 </div>
    		     </div>		
@@ -377,8 +377,8 @@
 	      <div class="col-md-7 col-sm-6  marginbot-50">
 		        <div class="widget-contact">
 		        			<div class="section-heading dark-font">
-				  				 <h3> Get in touch with us</h3>
-				  				  <h2> Send us your message</h2>
+				  				 <h3>{{'Get_in_touch' | translate}}</h3>
+				  				  <h2>{{'Send_us_your' | translate}}</h2>
 		             		 </div>        
 		         
 				<div class="boxed-grey">
@@ -387,30 +387,30 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">
-                                Name</label>
-                            <input ng-model="msg.name" type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+								{{'Name' | translate}}</label>
+                            <input ng-model="msg.name" type="text" class="form-control" id="name" placeholder="{{'Enter_name' | translate}}" required="required" />
                         </div>
                         <div class="form-group">
                             <label for="email">
-                                Email Address</label>
+								{{'Email_Address' | translate}}</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                <input ng-model="msg.email" type="text" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                                <input ng-model="msg.email" type="text" class="form-control" id="email" placeholder="{{'Enter_email' | translate}}" required="required" /></div>
                         </div>
                        
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">
-                                Message</label>
+								{{'Message' | translate}} </label>
                             <textarea ng-model="msg.msg"  name="message" id="message" class="form-control" rows="5" cols="15" required="required"
-                                placeholder="Message"></textarea>
+                                placeholder="{{'Message' | translate}}"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <button type="button" ng-click="sendMsg()" class="btn btn-warning " id="btnContactUs">
-                            Send Message</button>
+							{{'Send_Message' | translate}} </button>
                     </div>
                 </div>
                 </form>
@@ -425,10 +425,10 @@
 		    		<div class="item"></div>
 					        <div class="widget-contact">
 					        		<div class="section-heading">
-										  <h3> From the blog</h3>
-					                      <h2> Check our latest news</h2>
+										  <h3>{{'From_the_blog' | translate}} </h3>
+					                      <h2> {{'Check_our_latest_news' | translate}}</h2>
 					              	</div>    
-					              	<button type="submit" class="btn btn-warning btn-lg">Click here</button>    		  
+					              	<button type="submit" class="btn btn-warning btn-lg">{{'Click_here' | translate}}</button>
 					        </div>
 					    </div>	
 			    	
@@ -451,7 +451,7 @@
                                  
                 <li> <a target="_blank" href="#" title="Coders4Africa">&copy; 2016 Coders4Africa</a> </li>
                 <li><a target="_blank" href="http://coders4africa.com" title="http://coders4africa.com">www.coders4Africa.org</a></li>
-                <li><a href="#">Privacy Policy </a></li>
+                <li><a href="#">{{'Privacy_Policy' | translate}}</a></li>
 
        			
                 </ul>
@@ -495,11 +495,15 @@
 <script src="bower_components/angular-spinner/angular-spinner.min.js"></script>
 <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-re-captcha/angular-re-captcha.js"></script>
+<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+
 
 
 <script src="app/app.mdl.js"></script>
 <script src="app/app.run.js"></script>
 <script src="app/app.cfg.js"></script>
+<script src="app/app.ctrl.js"></script>
 <script src="app/registerCtrl.js"></script>
 <script src="app/factsCtrl.js"></script>
 

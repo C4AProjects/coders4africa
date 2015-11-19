@@ -11,7 +11,7 @@
  * Created by Haythem Horbit on 29/10/2015.
  */
 
-APP.controller('mailCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Notification','reCAPTCHA', function ($rootScope, $scope, $http, CONFIG, Notification,reCAPTCHA) {
+APP.controller('mailCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Notification','reCAPTCHA', '$translate',function ($rootScope, $scope, $http, CONFIG, Notification,reCAPTCHA,$translate) {
 
     $scope.msg={}
 

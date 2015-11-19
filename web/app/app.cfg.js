@@ -13,3 +13,12 @@ var config_dev={
 
 
 APP.constant("CONFIG",config_prod )
+APP.config(function ($translateProvider) {
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'l10n/',
+        suffix: '.json'
+    });
+
+    // Tell the module what language to use by default
+    $translateProvider.preferredLanguage('fr');
+});

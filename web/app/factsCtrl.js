@@ -7,7 +7,7 @@
  * Created by Haythem Horbit on 29/10/2015.
  */
 
-APP.controller('factsCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Notification','reCAPTCHA', function ($rootScope, $scope, $http, CONFIG, Notification,reCAPTCHA) {
+APP.controller('factsCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Notification','reCAPTCHA','$translate', function ($rootScope, $scope, $http, CONFIG, Notification,reCAPTCHA,$translate) {
 
 $scope.facts={}
     $scope.getFacts = function () {

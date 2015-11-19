@@ -10,7 +10,7 @@ APP =angular.module("C4A",
         'angularSpinner',
 
         'ui.select2',
-        'ui-notification','reCAPTCHA'
+        'ui-notification','reCAPTCHA','pascalprecht.translate'
 
     ]);
 

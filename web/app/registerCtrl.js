@@ -3,7 +3,7 @@
  * Created by Haythem Horbit on 29/10/2015.
  */
 
-APP.controller('registerCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Notification','reCAPTCHA', function ($rootScope, $scope, $http, CONFIG, Notification,reCAPTCHA) {
+APP.controller('registerCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Notification','reCAPTCHA','$translate', function ($rootScope, $scope, $http, CONFIG, Notification,reCAPTCHA,$translate) {
 
     $scope.user = {}
     function validateEmail(email) {
