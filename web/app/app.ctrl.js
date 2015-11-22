@@ -13,7 +13,7 @@
 
 APP.controller('appCtrl', ['$rootScope', '$scope', '$http', 'CONFIG', 'Notification','reCAPTCHA','$translate', function ($rootScope, $scope, $http, CONFIG, Notification,reCAPTCHA,$translate) {
 $scope.key='en'
-
+    $scope.isLoading = true;
     $scope.setLang = function(langKey) {
         // You can change the language during runtime
         $translate.use(langKey);
