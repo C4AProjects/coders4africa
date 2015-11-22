@@ -39,9 +39,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 	<style>
-		[ng\: cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
-						  display: none !important;
-					  }
+
 	</style>
 
 
@@ -70,8 +68,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#intro">{{'Home' | translate}}</a></li>
-        <li><a href="#about">{{'About' | translate}}</a></li>
+        <li class="active"><a href="#intro" ng-cloak>{{'Home' | translate}}</a></li>
+        <li><a href="#about" translate="About"></a></li>
 		<li><a id="btnForm2" href="#registration">{{'Join_Network' | translate}}</a></li>
 		<li><a href="http://coders4africa.org/">{{'Blog' | translate}}</a></li>
 		<li><a href="http://www.coders4africa.org">{{'Old_Community_site' | translate}}</a></li>
