@@ -45,7 +45,7 @@
 
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom" ng-controller="appCtrl">
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom" ng-controller="appCtrl" ng-cloak>
 <span us-spinner spinner-key="spinner-1" spinner-start-active="false"></span>
 
 	<!-- Preloader
@@ -53,7 +53,7 @@
 	  <div id="load"></div>
 	</div>
  -->
-    <nav class="navbar navbar-custom navbar-fixed-top" ng-if="isLoading" role="navigation">
+    <nav class="navbar navbar-custom navbar-fixed-top"  role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -70,18 +70,18 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#intro" ng-cloak>{{'Home' | translate}}</a></li>
         <li><a href="#about" translate="About"></a></li>
-		<li><a id="btnForm2" href="#registration">{{'Join_Network' | translate}}</a></li>
-		<li><a href="http://coders4africa.org/">{{'Blog' | translate}}</a></li>
-		<li><a href="http://www.coders4africa.org">{{'Old_Community_site' | translate}}</a></li>
-		<li><a href="#footer">{{'Contact' | translate}}</a></li>
-		  <li class="dropdown">
-			  <a ng-if="key=='fr'" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i> French(Fr) <i class="icon-angle-up"></i>
-				  <a ng-if="key=='en'" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i>  English (US) <i class="icon-angle-up"></i>
+		<li><a id="btnForm2" href="#registration" ng-cloak>{{'Join_Network' | translate}}</a></li>
+		<li><a href="http://coders4africa.org/" ng-cloak>{{'Blog' | translate}}</a></li>
+		<li><a href="http://www.coders4africa.org" ng-cloak>{{'Old_Community_site' | translate}}</a></li>
+		<li><a href="#footer" ng-cloak>{{'Contact' | translate}}</a></li>
+		  <li class="dropdown" ng-cloak>
+			  <a ng-cloak ng-if="key=='fr'" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i> French(Fr) <i class="icon-angle-up"></i>
+				  <a ng-cloak ng-if="key=='en'" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i>  English (US) <i class="icon-angle-up"></i>
 
 
 		  </a>
 
-			  <ul class="dropdown-menu">
+			  <ul class="dropdown-menu" ng-cloak>
 				  <li><a  href="#" style="color: black" ng-click="setLang('fr')">French(Fr)</a></li>
 				  <li><a  href="#" style="color: black" ng-click="setLang('en')">English(US)</a></li>
 			  </ul>
@@ -112,7 +112,7 @@
 
 	<!-- Section: intro -->
     <section id="intro" class="intro">
-<div class="item">
+<div class="item" ng-cloak>
     		 </div>
 	<div class="logo"></div>
 		<div class="slogan"  style="paddong:100px">
