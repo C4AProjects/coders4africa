@@ -41,7 +41,22 @@ module.exports.getById=function (userId,callback) {
     utils.getById(userId,callback,APP.FACTS)
 }
 module.exports.getAll=function (req,callback) {
-    APP.FACTS.findOne({},callback)
+
+    APP.USER.count({},function(err,count){
+        if (err)   cb(err)
+        else{
+            APP.FACTS.findOne({},function(er,facts){
+                if (facts) {
+                    console.log( facts.members)
+                    facts.members=parseInt(facts.members)+parseInt(count)
+                    callback(null,facts)
+                    console.log( facts.members)
+                }
+
+            })
+        }
+    })
+
 }
 
 

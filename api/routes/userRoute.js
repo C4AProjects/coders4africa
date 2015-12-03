@@ -92,4 +92,12 @@ module.exports = function (app) {
 
     });
 
+
+    app.get(APP.APIPATH + '/usercount', function (req, res) {
+
+
+
+
+    });
+
 }
