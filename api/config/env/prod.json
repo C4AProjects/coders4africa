@@ -1,11 +1,8 @@
 {
   "DB":
   {
-    "url": "mongodb://37.59.29.22/ngiaxess",
-    "auth": {
-      "user": "portal",
-      "pass": "weenee@p0rtal"
-    }
+    "url": "mongodb://localhost/c4a"
+
   },
   "API":
   {
@@ -15,11 +12,14 @@
     "expireSession": 120,
     "PATH":"/api"
 
-  } ,"mailer": {
-  "service": "Zoho",
+  },  "mailer": {"host": "smtp.coders4africa.org",
+
+  "port": 25,
   "auth": {
-    "user": "info@buzzo.me",
-    "pass":  "TheBuzZ0$ap)"
-  }}
+    "user": "contact@coders4africa.org",
+    "pass":  "Hakili2010"
+  }
+}
+
 
 }
