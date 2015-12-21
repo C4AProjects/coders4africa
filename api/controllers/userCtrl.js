@@ -10,6 +10,12 @@ var LIMIT_ROWS_DEFAULT = 10,
     LIMIT_ROWS = 100;
 var utils=require('../utils/utils');
 
+var WelcomMsg = "Thank you for pre-registering to CODERSAFRICA Africa's largest software developer Network <br>"+
+"We are working on a new and exciting platform to replace the old site http://old.coders4africa.org/.<br>"+
+"This new platform will allow members to learn to become better Software engineers ready to work on day one, or improve their skills. Our training model provide both hardcode technical and soft skills. Allowing members to network and collaborate better. Large enough to statisfy any skill level, technology and demography. Our network is a dream come through for African IT professionals. And finally provide jobs directly through CODERS4AFRICA's outsourcing services. And Indirectly through a Developer-As-A-Service (DaaS) serving clients across the world.<br>" +
+"With your pre-registration you will be first to know when the new platform goes live.<br>"+
+"Welcomde to codes4africa!<br>"+
+"To know more about our achievement feel free to visit the old community site at http://old.coders4africa.org/<br>"
 
 module.exports.add=function  (doc,callback){
 
@@ -42,7 +48,7 @@ module.exports.add=function  (doc,callback){
                 else
                 {
 
-                    APP.  MAILER.sendMail("<b>Welcome to Coders For Africa</b>",doc.email);
+                    APP.MAILER.sendMail(WelcomMsg,doc.email);
                     callback(null, user)
                 }
             });
